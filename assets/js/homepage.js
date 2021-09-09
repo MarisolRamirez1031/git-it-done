@@ -1,6 +1,9 @@
 var userFormEl = document.querySelector("#user-form");
 var nameInputEl = document.querySelector("#username");
 
+var repoContainerEl = document.querySelector("#repos-container");
+var repoSearchTerm = document.querySelector("#repo-search-term");
+
 // getUserRepos function 
 
 var getUserRepos = function(user) {
@@ -10,7 +13,7 @@ var getUserRepos = function(user) {
     // make a get request to the url
     fetch(apiURL).then(function(response) {
         response.json().then(function(data) {
-            console.log(data);
+            displayRepos(data, user);
         });
     });
 };
@@ -31,6 +34,13 @@ if (username) {
   alert("Please enter a GitHub username");
 }
     console.log(event);
+};
+
+// displayRepos function
+
+var displayRepos = function(repos, searchTerm) {
+    console.log(repos);
+    console.log(searchTerm);
 };
 
 
